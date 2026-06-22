@@ -7,11 +7,11 @@ st.set_page_config(page_title="Superstore Dashboard",page_icon="📊",layout="wi
 @st.cache_data
 def load_data():
     df = pd.read_csv("data/samplesuperstore.csv",parse_dates=["Order Date", "Ship Date"])
+
+    df["Order Year"] = df["Order Date"].dt.year
     return df
 
 
-
-df=load_data()
 
 st.title("Superstore Sales Dashboard")
 
